@@ -3,7 +3,7 @@
 # This script sets up the live web stream with Flask
 
 from flask import Flask, render_template, Response, request
-import cv2
+import cv2 # OpenCV
 import time
 import os
 
@@ -13,8 +13,9 @@ camera = cv2.VideoCapture(0)
 @app.route('/', methods=['GET', 'POST'])
 def move():
     result = ""
+
+    # Render html file
     if request.method == 'POST':
-        
         return render_template('index.html', res_str=result)
                         
     return render_template('index.html')
@@ -23,10 +24,9 @@ app.route('/video')
 def video():
     return Response(generate(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
 def generate(camera):
     while True:
-        # read the camera frame
+        # Read the camera frame
         success, frame=camera.read()
         if not success:
             break
@@ -36,11 +36,12 @@ def generate(camera):
         
     yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-       
+
+# Ensure server can be access through local ip address
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, threaded=True)
 
-# background process
+# Background processes
 @app.route('/left')
 def left():
     print ("Left")
