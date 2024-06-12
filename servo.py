@@ -13,29 +13,29 @@ def main(argv):
     loop = argv[4]
     servoMotor = argv[5]
     
-	# Horizontal movement
-	if (servoMotor == 1)
-		# Setup GPIO numbering mode and set pin 11 as output
-	    GPIO.setmode(GPIO.BOARD)
-	    GPIO.setwarnings(False)
-	    GPIO.setup(11, GPIO.OUT)
+    # Horizontal movement
+    if (servoMotor == 1)
+	# Setup GPIO numbering mode and set pin 11 as output
+	GPIO.setmode(GPIO.BOARD)
+	GPIO.setwarnings(False)
+	GPIO.setup(11, GPIO.OUT)
 	
-		# Start PWM running but have the pulse off initilly
-	    servo = GPIO.PWM(11, 50)
-	    servo.start(0)
+	# Start PWM running but have the pulse off initilly
+	servo = GPIO.PWM(11, 50)
+	servo.start(0)
 	# Vertical movement
-	else:
-		# Setup GPIO numbering mode and set pin 13 as output
-	    GPIO.setmode(GPIO.BOARD)
-	    GPIO.setwarnings(False)
-	    GPIO.setup(13, GPIO.OUT)
+    else:
+	# Setup GPIO numbering mode and set pin 13 as output
+	GPIO.setmode(GPIO.BOARD)
+	GPIO.setwarnings(False)
+	GPIO.setup(13, GPIO.OUT)
 	
-		# Start PWM running but have the pulse off initilly
-	    servo = GPIO.PWM(13, 50)
-	    servo.start(0)
+	# Start PWM running but have the pulse off initilly
+	servo = GPIO.PWM(13, 50)
+	servo.start(0)
 	    
     for i in range(0, int(loop)):
-		# Pass in a starting and ending degree depending on the button pressed
+	# Pass in a starting and ending degree depending on the button pressed
         for dc in range(int(start), int(end), 1):
             servo.ChangeDutyCycle(2 + (dc / 18))
             time.sleep(float(delay))
