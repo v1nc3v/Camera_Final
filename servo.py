@@ -20,17 +20,17 @@ def main(argv):
 	GPIO.setwarnings(False)
 	GPIO.setup(11, GPIO.OUT)
 	
-	# Start PWM running but have the pulse off initilly
+	# Start PWM running but have the pulse off initially
 	servo = GPIO.PWM(11, 50)
 	servo.start(0)
-	# Vertical movement
+    # Vertical movement
     else:
 	# Setup GPIO numbering mode and set pin 13 as output
 	GPIO.setmode(GPIO.BOARD)
 	GPIO.setwarnings(False)
 	GPIO.setup(13, GPIO.OUT)
 	
-	# Start PWM running but have the pulse off initilly
+	# Start PWM running but have the pulse off initially
 	servo = GPIO.PWM(13, 50)
 	servo.start(0)
 	    
