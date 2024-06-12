@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Security Camera</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <div id="stream">
+      <img class="camera-bg" src="{{ url_for('video') }}"/>
+    </div>
+
+    <!--Button for recording current footage-->
+    <div class="recording">
+      <a href="#" id="record">
+        <button id="recordBtn">
+          <i class="fa-solid fa-video fa-2x record"></i>
+        </button>
+      </a>
+    </div>
+
+    <!--Buttons to control camera movement-->
+    <div class="navbar">
+      <div class="camera-movement">
+        <a href="#" id="left">
+          <button>
+            <i class="fa fa-solid fa-chevron-left fa-2x horizontal"></i>
+          </button>
+        </a>
+        <a href="#" id="up">
+          <button>
+            <i class="fa fa-solid fa-chevron-up fa-2x vertical"></i>
+          </button>
+        </a>
+        <a href="#" id="center">
+          <button>
+            <i class="fa fa-regular fa-circle-dot fa-2x"></i>
+          </button>
+        </a>
+        <a href="#" id="down">
+          <button>
+            <i class="fa fa-solid fa-chevron-down fa-2x vertical"></i>
+          </button>
+        </a>
+        <a href="#" id="right">
+          <button>
+            <i class="fa fa-solid fa-chevron-right fa-2x horizontal"></i>
+          </button>
+        </a>
+      </div>
+    </div>
+    
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          
+          //json parse to Python
+          // Motor - left
+          $('a#left').bind('click', function() {
+            $.getJSON('/left',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+          
+          // Motor - up
+          $('a#up).bind('click', function() {
+            $.getJSON('/up,
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+          
+          // Motor - center
+          $('a#center').bind('click', function() {
+            $.getJSON('/center',
+              function(data) {
+                //do nothing
+              });
+              return false;
+            });
+            
+          // Motor - down
+          $('a#down').bind('click', function() {
+            $.getJSON('/down
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        
+          // Motor - right
+          $('a#right').bind('click', function() {
+              $.getJSON('/right',
+                function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          
+        
+        });    
+    </script>
+
+    <script type="text/javascript">
+  
+      let button = document.getElementById('recordBtn');
+
+      button.onclick = function() {
+      };
+    </script>
+  </body>
+</html>
