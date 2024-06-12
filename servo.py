@@ -14,7 +14,7 @@ def main(argv):
     servoMotor = argv[5]
     
     # Horizontal movement
-    if (servoMotor == 1)
+    if (servoMotor == 1):
 	# Setup GPIO numbering mode and set pin 11 as output
 	GPIO.setmode(GPIO.BOARD)
 	GPIO.setwarnings(False)
